@@ -1,1 +1,4 @@
-p hello rails
+
+div#users
+  - @users.each do |user|
+    p= "#{user.email}, online=#{current_user.id == user.id ? 'true' : user.is_online?}"

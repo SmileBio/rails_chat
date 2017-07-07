@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.2'
+gem 'rails', '>= 5.0.0.rc2', '< 5.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -32,10 +32,20 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'redis-rails'
+gem 'redis', '~>3.2'
+gem 'whenever', :require => false
+
+
 #Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.2'
+gem 'omniauth-facebook'
+#This ensures that devise will update a last_seen flag on the model whenever you check if a user is authed.
+gem 'devise_lastseenable', '~> 0.0.6'
 #Provides the generator settings required for Rails 3 and 4 to use Slim
 gem 'slim-rails', '~> 3.0', '>= 3.0.1'
+#bootstrap
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
