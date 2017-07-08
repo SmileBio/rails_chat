@@ -1,7 +1,7 @@
 class UsersChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
-    stream_from "welcome"
+    stream_from "users"
     #stream_for "welcome"#, TestJob.perform_later()
   end
 

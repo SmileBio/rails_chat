@@ -1,0 +1,22 @@
+p= @room.title
+
+div(id="room" data-chat-id="#{@room.id}")
+div(id="room_#{@room.id}" )
+  p messages
+  - @messages.each do |message|
+    p= message.context
+
+div(style="float:right")
+  p users
+  - @room.users.each do |user|
+    p= user.email
+
+
+= form_tag messages_path, id:"form_for_message" do
+  = text_field_tag :context
+  = hidden_field_tag :room_id, @room.id
+  = hidden_field_tag :user_id, current_user.id
+  span
+    = submit_tag 'send', class: "btn btn-danger", id: "send_message"
+
+

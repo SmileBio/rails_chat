@@ -5,6 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :lastseenable, :omniauthable, omniauth_providers: [:facebook]
 
+  has_and_belongs_to_many :rooms
+  has_many :messages
+
+
 
   def is_online?
     $redis_onlines.get( self.id ) ? true : false

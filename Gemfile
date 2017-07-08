@@ -36,6 +36,8 @@ gem 'redis-rails'
 gem 'redis', '~>3.2'
 gem 'whenever', :require => false
 
+gem "nested_form"
+
 
 #Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.2'
