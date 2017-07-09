@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170707131913) do
+ActiveRecord::Schema.define(version: 20170709110308) do
 
   create_table "messages", force: :cascade do |t|
     t.integer  "user_id"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170707131913) do
     t.string   "context"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "file_name"
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -26,7 +27,9 @@ ActiveRecord::Schema.define(version: 20170707131913) do
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "room_type"
+    t.string   "type"
+    t.integer  "owner_id"
+    t.index ["owner_id"], name: "index_rooms_on_owner_id"
   end
 
   create_table "rooms_users", id: false, force: :cascade do |t|

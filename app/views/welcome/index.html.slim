@@ -1,13 +1,11 @@
 
-div#users
-  - @users.each do |user|
-    p
-      = user.email
-      span
-        input(type="checkbox" id=(user.id) checked=(current_user.id == user.id ? true : user.is_online?))
-      span#chat-buttons
-        = form_tag rooms_path do
-          = hidden_field_tag :user_id, user.id
-          span
-            = submit_tag 'начать чат', class: "btn btn-danger"
-
+div(id="welcome_page" data-welcome-id="value")
+.row
+  div.col-lg-6.col-md-6
+    p юзеры
+    = render partial: "user", locals: {users: @users}
+  div.col-lg-6.col-md-6
+    p ваши комнаты
+    div
+      - @g_rooms.each do |room|
+        p= link_to room.title, global_room_path(room)

@@ -1,0 +1,19 @@
+div
+  div
+    div
+
+
+div#users
+  - users.each do |user|
+    p
+      = "#{user.email}, "
+      span(id=(user.id) )
+        = (current_user.id == user.id ? true : user.is_online?)
+
+      span
+        = form_tag rooms_path do
+          = hidden_field_tag :user_id, user.id
+          span
+            = submit_tag 'начать чат', class: "btn btn-danger"
+
+
