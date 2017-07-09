@@ -8,8 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.rc2', '< 5.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -39,6 +38,8 @@ gem 'whenever', :require => false
 gem "nested_form"
 gem 'simple_form'
 
+gem "pg"
+
 
 #Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.2'
@@ -56,6 +57,8 @@ gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
 group :development do
