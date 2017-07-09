@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 set :output, "/home/smile/rails/cron.log"
 
-every 1.minute do
+every 10.minute do
   rake "channels:wellcome:send_active_users"
 end
 

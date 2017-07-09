@@ -10,6 +10,7 @@ $(document).on 'turbolinks:load', ->
         # Called when the subscription has been terminated by the server
 
       received: (data) ->
+        console.log data
         data.forEach (item)->
           $( "##{item.id}" ).html("#{item.online}")
 
