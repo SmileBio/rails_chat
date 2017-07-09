@@ -1,4 +1,4 @@
-class TestJob < ApplicationJob
+class ShowOnlineJob < ApplicationJob
   queue_as :default
 
   def perform(*args)

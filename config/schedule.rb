@@ -22,6 +22,5 @@ set :output, "/home/smile/rails/cron.log"
 
 every 1.minute do
   rake "channels:wellcome:send_active_users"
-  #runner "TestJob.perform_later"
 end
 

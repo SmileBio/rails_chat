@@ -2,10 +2,12 @@
 div(id="welcome_page" data-welcome-id="value")
 .row
   div.col-lg-6.col-md-6
-    p юзеры
+    p
+     b юзеры
     = render partial: "user", locals: {users: @users}
   div.col-lg-6.col-md-6
-    p ваши комнаты
+    p
+     b ваши комнаты
     div
       - @g_rooms.each do |room|
-        p= link_to room.title, global_room_path(room)
+        p= link_to room.title, global_room_path(room), class: "btn btn-warning"

@@ -2,7 +2,6 @@ class UsersChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
     stream_from "users_welcome"
-    #stream_for "welcome"#, TestJob.perform_later()
   end
 
   def unsubscribed

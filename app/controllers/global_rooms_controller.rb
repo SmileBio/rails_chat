@@ -23,6 +23,7 @@ class GlobalRoomsController < ApplicationController
     if @g_room.save
       redirect_to global_room_path(@g_room)
     else
+      @users = User.where.not(id: current_user.id)
       render "new"
     end
   end
@@ -31,6 +32,7 @@ class GlobalRoomsController < ApplicationController
     if @g_room.update_attributes(g_room_params)
       redirect_to global_room_path(@g_room)
     else
+      @users = User.where.not(id: current_user.id)
       render "edit"
     end
   end

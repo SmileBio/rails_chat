@@ -10,18 +10,18 @@ html
   body
 
     - if user_signed_in?
-      = link_to "выйти", destroy_user_session_path, method: :delete
+      = link_to "выйти", destroy_user_session_path, method: :delete, class: "btn btn-danger"
       span ,
-      = link_to "домой", "/"
+      = link_to "домой", "/", class: "btn btn-info"
       span ,
       = link_to "создать груповой чат", new_global_room_path, class: "btn btn-info"
     - else
       p
-        = link_to "Facebook логин", user_facebook_omniauth_authorize_path
+        - link_to "Facebook логин", user_facebook_omniauth_authorize_path, class: "btn btn-primary"
       p
-        = link_to('Логин', new_user_session_path)
+        - link_to 'Логин', new_user_session_path, class: "btn btn-primary"
       p
-        = link_to('Регистрация', new_user_registration_path, id: "logout")
+        - link_to 'Регистрация', new_user_registration_path, id: "logout", class: "btn btn-primary"
 
     p.notice
       = notice

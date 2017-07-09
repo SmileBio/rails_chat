@@ -3,4 +3,6 @@ class Room < ApplicationRecord
   has_many :messages
 
   accepts_nested_attributes_for :users
+
+  validates :title, presence: true
 end

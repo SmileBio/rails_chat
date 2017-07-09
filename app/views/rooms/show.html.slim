@@ -3,13 +3,13 @@ div(style="text-align:center")
     b= @room.title
 
 div.row
-  div.col-lg-6.col-md-6
+  div#rooms.col-lg-6.col-md-6
     div(id="room" data-chat-id="#{@room.id}")
     div(id="room_#{@room.id}" )
 
       p messages
       - @messages.each do |message|
-        p= "#{message.user.email}| #{(message.created_at).strftime('%Y-%m-%d %H:%M')} |#{message.context}"
+        p= "#{message.user.email}| #{(message.created_at).strftime('%Y-%m-%d %H:%M')} -> #{message.context}"
         = link_to "file", "/uploads/#{message.file_name}" if message.file_name
     = form_tag messages_path, multipart: true, id:"form_for_message" do
       p= file_field_tag 'upload[file]'

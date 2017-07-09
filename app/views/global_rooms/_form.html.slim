@@ -3,8 +3,11 @@
     p
       = error
 
-= simple_form_for g_room do |g|
-  p= g.text_field :title
-  p= g.association :users, collection: users.collect{ |u| [u.email, u.id]}, as: :check_boxes
-  input(type="hidden" name="global_room[user_ids][]" value=(current_user.id))
-  p= g.submit
+.row
+  .form-group.col-lg-4.col-lg-offset-4
+    = simple_form_for g_room do |g|
+      label(for="global_room_title")название комнаты
+      p= g.text_field :title, required: true, class: "form-control", placeholder: "введите название комнаты"
+      p= g.association :users, collection: users.collect{ |u| [u.email, u.id]}, as: :check_boxes, label: false
+      input(type="hidden" name="global_room[user_ids][]" value=(current_user.id))
+      p= g.submit "создать руму", class: "btn btn-primary"

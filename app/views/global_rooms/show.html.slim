@@ -4,13 +4,13 @@ div(style="text-align:center")
     b= @g_room.title
 p= link_to "edit", edit_global_room_path(@g_room) if current_user.id == @g_room.owner_id
 div.row
-  div.col-lg-6.col-md-6
+  div#rooms.col-lg-6.col-md-6
     div(id="room" data-chat-id="#{@g_room.id}")
     div(id="room_#{@g_room.id}" )
       p
         b messages
       - @messages.each do |message|
-        p= "#{message.user.email}| #{(message.created_at).strftime('%Y-%m-%d %H:%M')} |#{message.context}"
+        p= "#{message.user.email}| #{(message.created_at).strftime('%Y-%m-%d %H:%M')} -> #{message.context}"
         = link_to "file", "/uploads/#{message.file_name}" if message.file_name
     = form_tag messages_path, id:"form_for_message" do
       p= file_field_tag 'upload[file]'
