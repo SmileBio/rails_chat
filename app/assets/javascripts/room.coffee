@@ -7,13 +7,14 @@ send_message = (event)->
 
   if file = $("#upload_file").prop('files')[0]
     getBase64(file)
-  else
+  else if $("#context").val()
     data = {}
     data.room_id = $("#room_id").val()
     data.user_id = $("#user_id").val()
     data.context = $("#context").val()
     App.messages.send_message(data)
     $("#context").val("")
+
   return false
 
 getBase64 = (file) ->
