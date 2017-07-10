@@ -10,7 +10,6 @@ $(document).on 'turbolinks:load', ->
         # Called when the subscription has been terminated by the server
 
       received: (data) ->
-        console.log data
         $("#room_#{data.data.room_id}").append(
             data.message
           )
