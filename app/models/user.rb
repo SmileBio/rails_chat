@@ -3,11 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :lastseenable, :omniauthable, omniauth_providers: [:facebook]
+         :omniauthable, omniauth_providers: [:facebook]
 
   has_and_belongs_to_many :rooms
   has_many :messages
-
 
 
   def is_online?
